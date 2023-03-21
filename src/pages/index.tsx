@@ -27,7 +27,11 @@ export default function Home({ products }: IPropsHome) {
   return (
     <HomeContainer ref={sliderRef} className="keen-slider">
       {products.map(product => (
-        <Product className="keen-slider__slide" key={product.id}>
+        <Product
+          className="keen-slider__slide"
+          href={`/product/${product.id}`}
+          key={product.id}
+        >
           <Image src={product.imageUrl} width={520} height={480} alt="" />
 
           <footer>
@@ -50,7 +54,10 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: price.unit_amount / 100,
+      price: new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(price.unit_amount / 100),
     }
   })
 
@@ -59,6 +66,5 @@ export const getStaticProps: GetStaticProps = async () => {
       products,
     },
     revalidate: 60 * 60 * 2, //2 hours
-    
   }
 }
