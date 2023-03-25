@@ -20,6 +20,8 @@ export const {
 
       green500: '#00875f',
       green300: '#00b37e',
+
+      backgroundImg: 'linear-gradient( #1ea483 0%,#7465d4 100%)',
     },
     fontSizes: {
       md: '1.125rem',

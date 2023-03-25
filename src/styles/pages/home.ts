@@ -11,7 +11,7 @@ export const HomeContainer = styled('main', {
 })
 
 export const Product = styled(Link, {
-  background: 'linear-gradient( #1ea483 0%,#7465d4 100%)',
+  background: '$backgroundImg',
   borderRadius: 8,
 
   cursor: 'pointer',
